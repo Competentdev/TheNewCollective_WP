@@ -78,12 +78,7 @@
 
                                                 ( $req ? '' : '' ) .
 
-                                                '<input id="email" placeholder="E-mail" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . ' />'.'</p>',
-
-                                    'url'    => '<p class="comment-form-url">' .
-                                                '<input id="url" name="url" placeholder="URL (optional)" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /> ' .
-                                                '<label for="url">' . esc_html__( '', 'neori' ) . '</label>' .
-                                                '</p>'
+                                                '<input id="email" placeholder="E-mail" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . ' />'.'</p>'
 		                              )
 	                               ),
 
@@ -93,16 +88,6 @@
 
                                                        '<textarea id="comment" name="comment" placeholder="' . esc_html__('Your comment here...', 'neori') . '"  aria-required="true"></textarea>' .
 
-                                                       '</p>' .
-									
-														'<p>' .
-                                                       '<label for="comment">' . esc_html__( '', 'neori'  ) . '</label>' .
-                                                       '<textarea id="comment" name="comment" placeholder="' . esc_html__('Name', 'neori') . '"  aria-required="true"></textarea>' .
-                                                       '</p>' .
-									
-														'<p>' .
-                                                       '<label for="comment">' . esc_html__( '', 'neori'  ) . '</label>' .
-                                                       '<textarea id="comment" name="comment" placeholder="' . esc_html__('Email', 'neori') . '"  aria-required="true"></textarea>' .
                                                        '</p>',
 
                                     'comment_notes_after' => '',

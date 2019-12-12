@@ -6,6 +6,8 @@ THUMBNAIL & TITLE
 
 <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );?>
 
+	
+
 <?php if(has_post_thumbnail()) : ?>
 
   <div class="single-thumbnail boxed" style="background-image: url('<?php echo esc_url($thumb['0']);?>')">
@@ -16,6 +18,7 @@ THUMBNAIL & TITLE
 
 <?php endif; ?>
 
+<div style="background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1)); border-radius: 10px; height: 100%;">
     <div class="container">
 
       <div class="single-thumbnail-inside row align-items-end">
@@ -24,7 +27,7 @@ THUMBNAIL & TITLE
 
           <span class="category"><?php neori_show_categories_except("Featured"); ?></span>
 
-			<h1 class="card-title"><span class="post-title" style="font-size: 36px;"><?php the_title(); ?></span></h1>
+			<h1 class="card-title"><span class="post-title" style="font-size: 36px; color: white !important; cursor: pointer;"><?php the_title(); ?></span></h1>
 
           <?php if ( 'post' === get_post_type() ) : ?>
 
@@ -39,9 +42,9 @@ THUMBNAIL & TITLE
       </div><!-- /.single-thumbnail-inside -->
 
     </div><!-- /.container -->
+</div>
 
   </div><!-- /.single-thumbnail -->
-
 
 
 <!--
@@ -107,18 +110,6 @@ THE POST CONTENT
               <?php get_template_part( 'template-parts/posts-navi' ); ?>
             <?php endif; ?>
 
-
-
-            <div class="single-bottom-area">
-
-				<div class="social-icons">
-					<a href="https://newcoll.shinebloom.com/?customize_changeset_uuid=5becbce8-215a-42ef-b030-7c4df8fe6ffa&amp;customize_theme=neori&amp;customize_messenger_channel=preview-16&amp;customize_autosaved=on" target="_blank"><i class="fa fa-facebook"></i></a>
-					<a href="https://newcoll.shinebloom.com/?customize_changeset_uuid=5becbce8-215a-42ef-b030-7c4df8fe6ffa&amp;customize_theme=neori&amp;customize_messenger_channel=preview-16&amp;customize_autosaved=on" target="_blank"><i class="fa fa-twitter"></i></a>
-					<a href="https://newcoll.shinebloom.com/?customize_changeset_uuid=5becbce8-215a-42ef-b030-7c4df8fe6ffa&amp;customize_theme=neori&amp;customize_messenger_channel=preview-16&amp;customize_autosaved=on" target="_blank"><i class="fa fa-linkedin"></i></a>
-					<a href="https://newcoll.shinebloom.com/?customize_changeset_uuid=5becbce8-215a-42ef-b030-7c4df8fe6ffa&amp;customize_theme=neori&amp;customize_messenger_channel=preview-16&amp;customize_autosaved=on" target="_blank"><i class="fa fa-instagram"></i></a>
-				</div><!-- /.social-icons -->
-
-            </div><!-- /.single-bottom-area -->
 
           </div><!-- /.entry-content -->
 

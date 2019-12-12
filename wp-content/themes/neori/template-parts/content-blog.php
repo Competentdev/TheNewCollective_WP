@@ -1,6 +1,6 @@
 <?php if(has_post_thumbnail()) : ?>
 
-  <article id="post-<?php the_ID(); ?>" <?php post_class( 'blog-post row align-items-center ' ); ?>>
+  <article id="post-<?php the_ID(); ?>" <?php post_class( 'blog-post row align-items-center post-hover-effect32' ); ?>>
 
     <div class="blog-post-thumbnail-zone col-12 col-lg-6">
 
@@ -14,7 +14,7 @@
 		
 		<?php echo get_avatar( get_the_author_meta('user_email'), '30', '' ); ?>
         <span class="avatar-name"> <?php echo get_the_author() . ' • '; ?> </span>
-		<span class="timeline">12 January 2020</span>
+		<span class="timeline"><?php the_time( get_option('date_format') ); ?></span>
 
       </div><!-- /.author-->
 

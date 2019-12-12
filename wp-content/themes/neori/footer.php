@@ -3,7 +3,7 @@
   <div class="container">
 	
 	<div class="row">
-		<div class="col-md-3 col-sm-6 col-xs" id="footer1">
+		<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 footer-padding" id="footer1">
 			<div class="footer-title" style="height: 25px;">
 				<div class="logo" style="background-image: url('https://newcoll.shinebloom.com/wp-content/uploads/2019/12/footer-logo.png'); width: 100%; height: 40px;">
 				</div>
@@ -12,39 +12,42 @@
 				Capacity building assistance to community based organizations engaged in HIV prevention across the United States and its affiliated territories. The C4H project is funded to provide CBA under Funding Opportunity Announcement 09-906 and this website is supported by Cooperative Agreement Number U65/PS001651 from The US Centers for Disease Control and Prevention.
 			</div>
 		</div>
-		<div class="col-md-3 col-sm-6 col-xs" id="footer2">
+		<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 footer-padding" id="footer2">
 			<div class="footer-title">
 				MOST RECENT
 			</div>
+			
+			
+			<?php $the_query = new WP_Query( 'posts_per_page=3' ); ?>
+
+			<?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
+
 			<div class="footer-content">
-				<div class="post-title">
-					The faulty technology behind ankle monitors
-				</div>
-				<span class="avatar-name">George Ryan • </span>
-				<span class="timeline">3 hours ago</span>
+				<div class="post-title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></div>
+				<span class="avatar-name"><?php the_author(); ?> • </span>
+				<span class="timeline"><?php the_time( get_option('date_format') ); ?></span>
 			</div>
-			<div class="footer-content">
-				<div class="post-title">
-					New Orleans shooting: What we know
-				</div>
-				<span class="avatar-name">Peter Griffin • </span>
-				<span class="timeline">8 hours ago</span>
-			</div>
-			<div class="footer-content">
-				<div class="post-title">
-					Twitter bans Ilhan Omar’s GOP rival for tweeting about hanging…
-				</div>
-				<span class="avatar-name">Adam Voigt • </span>
-				<span class="timeline">13 hours ago</span>
-			</div>
+
+			<?php 
+				endwhile;
+				wp_reset_postdata();
+			?>
 		</div>
-		<div class="col-md-3 col-sm-6 col-xs" id="footer3">
+		<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 footer-padding" id="footer3">
 			<div class="footer-title">
 				CONTACT US
 			</div>
 			<div class="footer-content">
-				<span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-				<span class="content">Capacity for Health c/o APIAHF One Kaiser Plaza, Suite 850 Oakland, CA 94612</span>
+				<table style="margin: 0px; border-collapse: separate;">
+					<tr>
+						<td style="padding: 0px;">
+							<span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+						</td>
+						<td style="padding: 0px;">
+							<span class="content">Capacity for Health c/o APIAHF One Kaiser Plaza, Suite 850 Oakland, CA 94612</span>
+						</td>
+					</tr>
+				</table>
 			</div>
 			<div class="footer-content">
 				<span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
@@ -55,7 +58,7 @@
 				<span class="content">name@email.com</span>
 			</div>
 		</div>
-		<div class="col-md-3 col-sm-6 col-xs" id="footer4">
+		<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 footer-padding" id="footer4">
 			<div class="footer-title">
 				FOLLOW US
 			</div>

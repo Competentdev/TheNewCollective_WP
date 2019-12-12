@@ -19,7 +19,7 @@
 
         <?php echo get_avatar( get_the_author_meta('user_email'), '30', '' ); ?>
         <span class="avatar-name"> <?php echo get_the_author() . ' • '; ?> </span>
-		<span class="timeline">12 January 2020</span>
+		<span class="timeline"><?php the_time( get_option('date_format') ); ?></span>
 
       </p><!-- /.card-meta -->
 

@@ -4,7 +4,7 @@ Donate link: https://broadcast.plainviewplugins.com
 License: GPLv3
 Requires at least: 4.6
 Requires PHP: 5.4
-Stable tag: 45.06
+Stable tag: 45.07
 Tags: multipost, sharing, duplicate, franchise, syndication, marketing, news, hub
 Tested up to: 5.3
 
@@ -336,6 +336,10 @@ This will broadcast all normal product settings: SKU, price, etc.
 If your products have variations, a product image gallery, you want to sync stock, you want to sync orders, need the attribute taxonomies to be synced, you'll be wanting the <a href="https://broadcast.plainviewplugins.com/addon/woocommerce/">WooCommerce add-on</a>.
 
 == Changelog ==
+
+= 45.07 20191211 =
+
+* Fix: Try resyncing taxonomies that are empty. Some plugins block the display of taxonomies that are shared between post types. This change fixes some Post Expirator categories.
 
 = 45.06 20191116 =
 

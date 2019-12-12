@@ -1,113 +1,134 @@
 <div id="carousel" class="carousel slide" data-ride="carousel">
 
-  <div class="carousel-inner">
+	<div class="carousel-inner">
 
-      <?php
+		<?php
 
-        $carousel_query = new WP_Query(array(
-          'type' => 'post',
-          'post_status' => 'publish',
-          'category_name' => 'Featured',
-          'posts_per_page' => 1,
-          'ignore_sticky_posts' => 1,
-        ));
+		$carousel_query = new WP_Query(array(
+			'type' => 'post',
+			'post_status' => 'publish',
+			'category_name' => 'Featured',
+			'posts_per_page' => 1,
+			'ignore_sticky_posts' => 1,
+		));
 
-        while ( $carousel_query->have_posts() ) :
+		while ( $carousel_query->have_posts() ) :
 
-          $carousel_query->the_post();
+		$carousel_query->the_post();
 
-      ?>
+		?>
 
-      <div class="carousel-item active">
+		<div class="carousel-item active">
 
-        <?php the_post_thumbnail('post-thumbnail',  array('class' => 'd-block w-100 carousel-image', 'title' => 'First slide'));?>
+			<?php the_post_thumbnail('post-thumbnail',  array('class' => 'd-block w-100 carousel-image', 'title' => 'First slide'));?>
 
-        <div class="carousel-caption d-block">
+			<div class="bottom-gradient">
 
-          <h3><a class="post-title" href="<?php echo get_permalink(); ?>"><?php the_title();?></a></h3>
+				<div class="carousel-caption d-block">
 
-          <?php if(!get_theme_mod('neori_carousel_custom_excerpt_setting')) : ?>
+					<div class="hover-effect">
 
-            <p class="d-sm-block d-md-none"><a class="post-content" href="<?php echo get_permalink(); ?>"><?php echo wp_trim_words( get_the_content(), 10, '...' ); ?></a></p>
-        
-            <p class="d-none d-md-block"><a class="post-content" href="<?php echo get_permalink(); ?>"><?php echo wp_trim_words( get_the_content(), 20, '...' ); ?></a></p>
-			
-			<?php
-			$user = wp_get_current_user();
-			if ( $user ) :
-				?>
-				<img src="<?php echo esc_url( get_avatar_url( $user->ID ) ); ?>" style="width: 30px; border-radius: 30px;"/>
-			<?php endif; ?>
-			<span class="avatar-name"> <?php echo get_the_author() . ' • '; ?> </span>
-			<span class="timeline">12 January 2020</span>
+						<h3><a href="<?php echo get_permalink(); ?>"><?php the_title();?></a></h3>
 
-          <?php else: ?>   
+						<?php if(!get_theme_mod('neori_carousel_custom_excerpt_setting')) : ?>
 
-            <p><a href="<?php echo get_permalink(); ?>"><?php echo get_the_excerpt(); ?></a></p> 
-      
-          <?php endif; ?>   
+						<p class="d-sm-block d-md-none"><a href="<?php echo get_permalink(); ?>"><?php echo wp_trim_words( get_the_content(), 10, '...' ); ?></a></p>
 
-        </div><!-- /.carousel-caption -->
+						<p class="d-none d-md-block"><a href="<?php echo get_permalink(); ?>"><?php echo wp_trim_words( get_the_content(), 20, '...' ); ?></a></p>
+						
+					</div>
 
-      </div><!-- /.carousel-item -->
+					<?php
+					$user = wp_get_current_user();
+					if ( $user ) :
+					?>
+					<img src="<?php echo esc_url( get_avatar_url( $user->ID ) ); ?>" style="width: 30px; border-radius: 30px;"/>
+					<?php endif; ?>
+					<span class="avatar-name"> <?php echo get_the_author() . ' • '; ?> </span>
+					<span class="timeline"><?php the_time( get_option('date_format') ); ?></span>
 
-      <?php endwhile; ?>
+					<?php else: ?>   
 
-      <?php wp_reset_postdata(); ?>
+					<p><a href="<?php echo get_permalink(); ?>"><?php echo get_the_excerpt(); ?></a></p> 
+
+					<?php endif; ?>   
+
+				</div><!-- /.carousel-caption -->
+
+			</div>
+
+		</div><!-- /.carousel-item -->
+
+		<?php endwhile; ?>
+
+		<?php wp_reset_postdata(); ?>
 
 
 
-      <?php
+		<?php
 
-        $carousel_query = new WP_Query(array(
-          'type' => 'post',
-          'post_status' => 'publish',
-          'category_name' => 'Featured',
-          'posts_per_page' => esc_html (get_theme_mod ('neori_carousel_posts_number_setting', '')),
-          'offset' => 1,
-          'ignore_sticky_posts' => 1,
-        ));
+		$carousel_query = new WP_Query(array(
+			'type' => 'post',
+			'post_status' => 'publish',
+			'category_name' => 'Featured',
+			'posts_per_page' => esc_html (get_theme_mod ('neori_carousel_posts_number_setting', '')),
+			'offset' => 1,
+			'ignore_sticky_posts' => 1,
+		));
 
-        while ( $carousel_query->have_posts() ) :
+		while ( $carousel_query->have_posts() ) :
 
-          $carousel_query->the_post();
+		$carousel_query->the_post();
 
-      ?>
+		?>
 
-    <div class="carousel-item">
+		<div class="carousel-item">
 
-      <?php the_post_thumbnail('post-thumbnail',  array('class' => 'd-block w-100 carousel-image', 'title' => 'Second Slide'));?>
+			<?php the_post_thumbnail('post-thumbnail',  array('class' => 'd-block w-100 carousel-image', 'title' => 'Second Slide'));?>
 
-      <div class="carousel-caption d-block">
+			<div class="bottom-gradient">
 
-        <h3><a href="<?php echo get_permalink(); ?>"><?php the_title();?></a></h3>
+				<div class="carousel-caption d-block">
 
-        <?php if(!get_theme_mod('neori_carousel_custom_excerpt_setting')) : ?>
+					<h3><a href="<?php echo get_permalink(); ?>"><?php the_title();?></a></h3>
 
-          <p class="d-sm-block d-md-none"><a href="<?php echo get_permalink(); ?>"><?php echo wp_trim_words( get_the_content(), 10, '...' ); ?></a></p>
+					<?php if(!get_theme_mod('neori_carousel_custom_excerpt_setting')) : ?>
 
-          <p class="d-none d-md-block"><a href="<?php echo get_permalink(); ?>"><?php echo wp_trim_words( get_the_content(), 20, '...' ); ?></a></p>
+					<p class="d-sm-block d-md-none"><a href="<?php echo get_permalink(); ?>"><?php echo wp_trim_words( get_the_content(), 10, '...' ); ?></a></p>
 
-        <?php else: ?>   
+					<p class="d-none d-md-block"><a href="<?php echo get_permalink(); ?>"><?php echo wp_trim_words( get_the_content(), 20, '...' ); ?></a></p>
 
-          <p><a href="<?php echo get_permalink(); ?>"><?php echo get_the_excerpt(); ?></a></p> 
+					<?php
+					$user = wp_get_current_user();
+					if ( $user ) :
+					?>
+					<img src="<?php echo esc_url( get_avatar_url( $user->ID ) ); ?>" style="width: 30px; border-radius: 30px;"/>
+					<?php endif; ?>
+					<span class="avatar-name"> <?php echo get_the_author() . ' • '; ?> </span>
+					<span class="timeline"><?php the_time( get_option('date_format') ); ?></span>
 
-        <?php endif; ?> 
+					<?php else: ?>   
 
-      </div><!-- /.carousel-caption -->
+					<p><a href="<?php echo get_permalink(); ?>"><?php echo get_the_excerpt(); ?></a></p> 
 
-    </div><!-- /.carousel-item -->
+					<?php endif; ?> 
 
-      <?php endwhile; ?>
+				</div><!-- /.carousel-caption -->
+				
+			</div>
 
-      <?php wp_reset_postdata(); ?>
+		</div><!-- /.carousel-item -->
 
-  </div><!-- /.carousel-inner -->
+		<?php endwhile; ?>
 
-    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+		<?php wp_reset_postdata(); ?>
 
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	</div><!-- /.carousel-inner -->
 
-    </a>
+	<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+	</a>
 
 </div><!-- /.carousel -->

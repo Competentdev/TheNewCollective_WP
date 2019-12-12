@@ -97,6 +97,10 @@ class Taxonomies
 		// Objects are easier to reference.
 		$options = (object) $options;
 
+		// Nothing set? Try to resync.
+		if ( count ( $this->broadcasting_data->parent_blog_taxonomies[ $options->taxonomy ][ 'terms' ] ) < 1 )
+			unset( $this->broadcasting_data->parent_blog_taxonomies[ $options->taxonomy ] );
+
 		if ( isset( $this->broadcasting_data->parent_blog_taxonomies[ $options->taxonomy ] ) )
 			return ThreeWP_Broadcast()->debug( 'Not bothering to sync taxonomy <em>%s</em> for post type <em>%s</em> because it is already being synced.', $options->taxonomy, $options->post_type );
 

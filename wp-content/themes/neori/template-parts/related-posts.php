@@ -16,7 +16,7 @@
 
         $args=array(
           'category__in' => $category_ids,
-          'post__not_in' => array($post->ID),
+          'post__not_in' => array($post->ID, 227),
           'posts_per_page'=> 3,
           'ignore_sticky_posts'=> 1
         );
@@ -49,7 +49,7 @@
 
                   <?php echo get_avatar( get_the_author_meta('user_email'), '20', '' ); ?>
 
-                  <span class="author"><?php the_author_posts_link(); ?></span>
+                  <span class="author"><?php the_author_posts_link() . ' • '; ?></span>
 
                   <span class="date"><?php the_time( get_option('date_format') ); ?></span>
 
@@ -57,31 +57,7 @@
 
               </div><!-- /.custom-card -->
 
-            <?php else: ?>
-
-              <div class="custom-card">
-
-                <div class="card card-empty">
-
-                  <div class="card-body">
-
-                    <h4 class="card-title"><a rel="external" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-
-                  </div><!-- /.card-body -->
-
-                </div><!-- /.card /.card-empty -->
-
-                <div class="meta-zone">
-
-                  <?php echo get_avatar( get_the_author_meta('user_email'), '20', '' ); ?>
-
-                  <span class="author"><?php the_author_posts_link(); ?></span>
-
-                  <span class="date"><?php the_time( get_option('date_format') ); ?></span>
-
-                </div><!-- /.meta-zone -->
-
-              </div><!-- /.custom-card -->
+            
 
             <?php endif; ?>
 

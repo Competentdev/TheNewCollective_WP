@@ -1,25 +1,25 @@
 <div class="card">
 
-  <article id="post-<?php the_ID(); ?>" <?php post_class( '' ); ?>>
+	<article class="post-hover-effect" id="post-<?php the_ID(); ?>" <?php post_class( '' ); ?>>
 
-    <a href="<?php echo get_permalink() ?>"><?php the_post_thumbnail('medium_large', array('class' => 'card-img-top')); ?></a>
+		<a href="<?php echo get_permalink() ?>"><?php the_post_thumbnail('medium_large', array('class' => 'card-img-top post-hover-effect')); ?></a>
 
-    <div class="card-body">
+		<div class="card-body">
 
-      <h3 class="card-title"><a class="post-title" href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h3>
+			<h3 class="card-title"><a class="post-title post-hover-effect" href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h3>
 
-      <p class="card-text post-content"><?php echo wp_trim_words( get_the_content(), 23, '...' ); ?></p>
+			<p class="card-text post-content"><?php echo wp_trim_words( get_the_content(), 23, '...' ); ?></p>
 
-      <p class="card-meta">
+			<p class="card-meta">
 
-        <?php echo get_avatar( get_the_author_meta('user_email'), '30', '' ); ?>
-        <span class="avatar-name"> <?php echo get_the_author() . ' • '; ?> </span>
-		<span class="timeline">12 January 2020</span>
+				<?php echo get_avatar( get_the_author_meta('user_email'), '30', '' ); ?>
+				<span class="avatar-name"> <?php echo get_the_author() . ' • '; ?> </span>
+				<span class="timeline"><?php the_time( get_option('date_format') ); ?></span>
 
-      </p><!-- /.card-meta -->
+			</p><!-- /.card-meta -->
 
-    </div><!-- /.card-body -->
+		</div><!-- /.card-body -->
 
-  </article>
+	</article>
 
 </div><!-- /.card -->
